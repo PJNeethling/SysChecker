@@ -1,0 +1,2373 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BeingIT</name>
+    </assembly>
+    <members>
+        <member name="T:BeingIT.AppData">
+            <summary>
+            Application Data Class.
+            </summary>
+        </member>
+        <member name="T:BeingIT.AppData.Location">
+            <summary>
+            Storage Location.
+            </summary>
+        </member>
+        <member name="F:BeingIT.AppData.Location.AllUsers">
+            <summary>
+            The directory that serves as a common repository for application-specific data that is used by all users.
+            </summary>
+        </member>
+        <member name="F:BeingIT.AppData.Location.UserLocal">
+            <summary>
+            The directory that serves as a common repository for the current, non-roaming user.
+            </summary>
+        </member>
+        <member name="F:BeingIT.AppData.Location.UserRoaming">
+            <summary>
+            A directory location that serves as a common repository for the current roaming user.
+            </summary>
+            <example>
+            The directory that serves as a common repository for application-specific data for the current roaming user.
+            A roaming user works on more than one computer on a network. A roaming user's profile is kept on a server 
+            on the network and is loaded onto a system when the user logs on.
+            </example>
+        </member>
+        <member name="F:BeingIT.AppData.Location.UserTemp">
+            <summary>
+            A directory location that serves as a temporary repository for the current roaming user.
+            </summary>
+        </member>
+        <member name="P:BeingIT.AppData.IdentityBuiltinUsers">
+            <summary>
+            Gets the Users group identity from WellKnownSidType.BuiltinUsersSid.
+            </summary>
+        </member>
+        <member name="P:BeingIT.AppData.IdentityCurrentUser">
+            <summary>
+            Gets the current user identity from .WindowsIdentity.GetCurrent().User.
+            Note that this is not necessarily the logged in user, it is the process owner which in some cases can be the SYSTEM account.
+            </summary>
+        </member>
+        <member name="P:BeingIT.AppData.IdentityLoggedInUser">
+            <summary>
+            Gets the currently logged in user identity using the values from the Environment variables.
+            </summary>
+        </member>
+        <member name="P:BeingIT.AppData.TempPath">
+            <summary>
+            Gets the path of the current system's temporary folder.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BeingIT.AppData.TempDirectory">
+            <summary>
+            Gets the directory of the current system's temporary folder.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.GetTempFile">
+            <summary>
+            Creates a uniquely named, zero-byte temporary file on disk and returns the file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.GetDirectory(BeingIT.AppData.Location)">
+            <summary>
+            Returns an instance to the storage path.
+            </summary>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.GetDirectory(System.Boolean,BeingIT.AppData.Location)">
+            <summary>
+            Returns an instance to the storage path.
+            </summary>
+            <param name="versionSpecific"></param>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.GetDirectory(System.Reflection.Assembly,BeingIT.AppData.Location)">
+            <summary>
+            Returns an instance to the storage path.
+            </summary>
+            <param name="assembly"></param>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.GetDirectory(System.Reflection.Assembly,System.Boolean,BeingIT.AppData.Location)">
+            <summary>
+            Returns an instance to the storage path.
+            </summary>
+            <param name="assembly"></param>
+            <param name="versionSpecific"></param>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.GetDirectory(BeingIT.AppData.Location,System.Boolean)">
+            <summary>
+            Returns an instance to the storage path with an option to auto create it if it does not exist.
+            </summary>
+            <param name="location"></param>
+            <param name="autoCreate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.GetDirectory(System.Boolean,BeingIT.AppData.Location,System.Boolean)">
+            <summary>
+            Returns an instance to the storage path with an option to auto create it if it does not exist.
+            </summary>
+            <param name="versionSpecific"></param>
+            <param name="location"></param>
+            <param name="autoCreate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.GetDirectory(System.Reflection.Assembly,BeingIT.AppData.Location,System.Boolean)">
+            <summary>
+            Returns an instance to the storage path with an option to auto create it if it does not exist.
+            </summary>
+            <param name="assembly"></param>
+            <param name="location"></param>
+            <param name="autoCreate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.GetDirectory(System.Reflection.Assembly,System.Boolean,BeingIT.AppData.Location,System.Boolean)">
+            <summary>
+            Returns an instance to the storage path with an option to auto create it if it does not exist.
+            </summary>
+            <param name="assembly"></param>
+            <param name="versionSpecific"></param>
+            <param name="location"></param>
+            <param name="autoCreate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.AppData.SetAccessControl(System.IO.DirectoryInfo)">
+            <summary>
+            Sets the access control on the given directory granting Modify, Read &amp; Execute, List directory, Read and Write access to built in users.
+            </summary>
+            <param name="directoryInfo">The directory where the access control should be applied to.</param>
+        </member>
+        <member name="M:BeingIT.AppData.SetAccessControl(System.IO.DirectoryInfo,System.Security.Principal.IdentityReference)">
+            <summary>
+            Sets the access control on the given directory granting Modify, Read &amp; Execute, List directory, Read and Write access to the given Sid.
+            </summary>
+            <param name="directoryInfo">The directory where the access control should be applied to.</param>
+            <param name="identity">The security identifier.</param>
+        </member>
+        <member name="M:BeingIT.AppData.SetAccessControl(System.IO.FileInfo)">
+            <summary>
+            Sets the access control on the given file granting Modify, Read &amp; Execute, Read and Write access to built in users.
+            </summary>
+            <param name="fileInfo">The file where the access control should be applied to.</param>
+        </member>
+        <member name="M:BeingIT.AppData.SetAccessControl(System.IO.FileInfo,System.Security.Principal.IdentityReference)">
+            <summary>
+            Sets the access control on the given file granting Modify, Read &amp; Execute, Read and Write access to to given Sid.
+            </summary>
+            <param name="fileInfo">The file where the access control should be applied to.</param>
+            <param name="identity">The security identifier.</param>
+        </member>
+        <member name="M:BeingIT.AppData.SetAccessControl(BeingIT.AppData.Location)">
+            <summary>
+            Sets the access control to all sub directories and child files under the given location granting Modify, Read &amp; Execute, List directory, Read and Write access to the given Sid.
+            </summary>
+            <param name="location">The location where the access control should be applied to.</param>
+        </member>
+        <member name="M:BeingIT.AppData.SetAccessControl(BeingIT.AppData.Location,System.Security.Principal.IdentityReference)">
+            <summary>
+            Sets the access control to all sub directories and child files under the given location granting Modify, Read &amp; Execute, List directory, Read and Write access to the given Sid.
+            </summary>
+            <param name="location">The location where the access control should be applied to.</param>
+            <param name="identity">The security identifier.</param>
+        </member>
+        <member name="M:BeingIT.AppData.SetAccessControl(System.Reflection.Assembly,BeingIT.AppData.Location)">
+            <summary>
+            Sets the access control to all sub directories and child files under the given location granting Modify, Read &amp; Execute, List directory, Read and Write access to the given Sid.
+            </summary>
+            <param name="assembly"></param>
+            <param name="location">The location where the access control should be applied to.</param>
+        </member>
+        <member name="M:BeingIT.AppData.SetAccessControl(System.Reflection.Assembly,BeingIT.AppData.Location,System.Security.Principal.IdentityReference)">
+            <summary>
+            Sets the access control to all sub directories and child files under the given location granting Modify, Read &amp; Execute, List directory, Read and Write access to the given Sid.
+            </summary>
+            <param name="assembly"></param>
+            <param name="location">The location where the access control should be applied to.</param>
+            <param name="identity">The security identifier.</param>
+        </member>
+        <member name="T:BeingIT.AssemblyAttributes">
+            <summary>
+            Assembly Information helper.
+            </summary>
+        </member>
+        <member name="M:BeingIT.AssemblyAttributes.GetAssemblyAttributes(System.String)">
+            <summary>
+            Loads the attributed of an assembly file on the specified path.
+            </summary>
+            <param name="path">The path of the file to load.</param>
+            <returns>The loaded assembly attributes.</returns>
+        </member>
+        <member name="M:BeingIT.AssemblyAttributes.GetAssemblyAttributes(System.Type)">
+            <summary>
+            Gets the currently loaded assembly in which the specified class is defined.
+            </summary>
+            <param name="type">A System.Type object representing a class in the assembly that will be returned.</param>
+            <returns>The assembly attributes in which the specified class is defined.</returns>
+        </member>
+        <member name="M:BeingIT.AssemblyAttributes.GetEntryAssemblyAttributes">
+            <summary>
+            Gets the process executable in the default application domain. In other application domains, 
+            this is the first executable that was executed by System.AppDomain.ExecuteAssembly(System.String).
+            </summary>
+            <returns>The assembly attributes that is the process executable in the default application domain,
+            or the first executable that was executed by System.AppDomain.ExecuteAssembly(System.String).
+            Can return null when called from unmanaged code.</returns>
+        </member>
+        <member name="M:BeingIT.AssemblyAttributes.GetExecutingAssemblyAttributes">
+            <summary>
+            Gets the assembly that contains the code that is currently executing.
+            </summary>
+            <returns>The assembly attributes representing the assembly that contains the
+            code that is currently executing.</returns>
+        </member>
+        <member name="M:BeingIT.AssemblyAttributes.GetAssemblyAttributes(System.Reflection.Assembly)">
+            <summary>
+            Gets the assembly that contains the code that is currently executing.
+            </summary>
+            <returns>The assembly attributes representing the assembly that contains the
+            code that is currently executing.</returns>
+        </member>
+        <member name="M:BeingIT.AssemblyAttributes.#ctor(System.Reflection.Assembly)">
+            <summary>
+            AssemblyInfo Constructor.
+            </summary>
+        </member>
+        <member name="P:BeingIT.AssemblyAttributes.Assembly">
+            <summary>
+            Gets the reflected assembly.
+            </summary>
+        </member>
+        <member name="P:BeingIT.AssemblyAttributes.CompanyName">
+            <summary>
+            Gets the company name attribute value.
+            </summary>
+            <exception cref="T:System.NullReferenceException">Assembly Company Attribute was null.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">Assembly Company Attribute array was empty.</exception>
+        </member>
+        <member name="P:BeingIT.AssemblyAttributes.ProductName">
+            <summary>
+            Gets the product name attribute value.
+            </summary>
+            <exception cref="T:System.NullReferenceException">Assembly Product Attribute was null.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">Assembly Product Attribute array was empty.</exception>
+        </member>
+        <member name="P:BeingIT.AssemblyAttributes.ProductDescription">
+            <summary>
+            Gets the product description attribute value.
+            </summary>
+            <exception cref="T:System.NullReferenceException">Assembly Description Attribute was null.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">Assembly Description Attribute array was empty.</exception>
+        </member>
+        <member name="P:BeingIT.AssemblyAttributes.Guid">
+            <summary>
+            Gets the guid attribute value.
+            </summary>
+            <exception cref="T:System.NullReferenceException">Assembly Guid Attribute was null.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">Assembly Guid Attribute array was empty.</exception>
+        </member>
+        <member name="P:BeingIT.AssemblyAttributes.Version">
+            <summary>
+            Gets the version from the assembly's unique identification.
+            </summary>
+            <exception cref="T:System.NullReferenceException">Assembly name can not be null.</exception>
+        </member>
+        <member name="M:BeingIT.AssemblyAttributes.Dispose">
+            <summary>
+            Disposes all resources.
+            </summary>
+        </member>
+        <member name="T:BeingIT.CommandLineArguments">
+            <summary>
+            Abstract CommandLine Arguments Class.
+            </summary>
+        </member>
+        <member name="M:BeingIT.CommandLineArguments.#ctor">
+            <summary>
+            CommandLineArguments Constructor.
+            </summary>
+        </member>
+        <member name="T:BeingIT.CommandLineParser">
+            <summary>
+            Implementation of a command-line parsing class.  Is capable of having
+            switches registered with it directly or can examine a registered class
+            for any properties with the appropriate attributes appended to them.
+            </summary>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.GetParameters(System.String)">
+            <summary>
+            Returns an array of the remaining parameters.
+            </summary>
+            <param name="workingString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.GetHelpText(BeingIT.CommandLineSwitchInfo[])">
+            <summary>
+            Returns the user help text.
+            </summary>
+            <param name="switchInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.GetHelpText(BeingIT.CommandLineArguments)">
+            <summary>
+            Returns the user help text.
+            </summary>
+            <param name="commandLineArguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.GetHelpText(System.Object)">
+            <summary>
+            Returns the user help text.
+            </summary>
+            <param name="classForAutoAttributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.#ctor(BeingIT.CommandLineArguments)">
+            <summary>
+            CommandLineParser Constructor.
+            </summary>
+            <param name="commandLineArguments">The command line arguments class holding the propeties of the switches.</param>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.#ctor(BeingIT.CommandLineArguments,System.String)">
+            <summary>
+            CommandLineParser Constructor.
+            </summary>
+            <param name="commandLine">The commandline. Use Environment.CommandLine</param>
+            <param name="commandLineArguments">The command line arguments class holding the propeties of the switches.</param>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.#ctor(System.Object,System.String)">
+            <summary>
+            CommandLineParser Constructor.
+            </summary>
+            <param name="commandLine">The commandline. Use Environment.CommandLine</param>
+            <param name="classForAutoAttributes">The command line arguments class holding the propeties of the switches.</param>
+        </member>
+        <member name="P:BeingIT.CommandLineParser.Item(System.String)">
+            <summary>
+            Gets the value of the command line switch.
+            </summary>
+            <param name="name">The name of the command line switch.</param>
+            <returns></returns>
+        </member>
+        <member name="P:BeingIT.CommandLineParser.HelpText">
+            <summary>
+            Gets the user help text.
+            </summary>
+        </member>
+        <member name="P:BeingIT.CommandLineParser.Parameters">
+            <summary>
+            Gets the command line parameters.
+            </summary>
+        </member>
+        <member name="P:BeingIT.CommandLineParser.Switches">
+            <summary>
+            Gets the command line switches.
+            </summary>
+        </member>
+        <member name="P:BeingIT.CommandLineParser.UnhandledSwitches">
+            <summary>
+            This function returns a list of the unhandled switches
+            that the parser has seen, but not processed.
+            </summary>
+            <remark>
+            The unhandled switches are not removed from the remainder
+            of the command-line.
+            </remark>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.AddSwitch(System.String,System.String)">
+            <summary>
+            Adds a command line scwitch.
+            </summary>
+            <param name="name">The name of the command line switch.</param>
+            <param name="description">The description of the command line switch.</param>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.AddSwitch(System.String[],System.String)">
+            <summary>
+            Adds command line scwitches.
+            </summary>
+            <param name="names">The names of the command line switches.</param>
+            <param name="description">The description of the command line switches.</param>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.Parse(System.String)">
+            <summary>
+            Parses the command line arguments.
+            </summary>
+            <remarks>string.Join(" ", args) // using args drops the " from the parameters</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.Parse(System.String,System.String[]@)">
+            <summary>
+            Parses the command line arguments.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.CommandLineParser.GetInternalValue(System.String)">
+            <summary>
+            Returns the internal value of a command line argument.
+            </summary>
+            <param name="name">The name of the command line switch.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeingIT.CommandLineSwitchInfo">
+            <summary>
+            A simple internal class for passing back to the caller
+            some information about the switch.  The internals/implementation
+            of this class has privillaged access to the contents of the
+            CommandLineSwitchRecord class.
+            </summary>
+        </member>
+        <member name="M:BeingIT.CommandLineSwitchInfo.#ctor(BeingIT.CommandLineSwitchRecord)">
+            <summary>
+            Constructor for the CommandLineSwitchInfo class.
+            </summary>
+            <param name="rec">The CommandLineSwitchRecord for which this class store information.</param>
+            <exception cref="T:System.ArgumentException">Thrown if the rec parameter is not of
+            the type CommandLineSwitchRecord.</exception>
+        </member>
+        <member name="T:BeingIT.CommandLineSwitchRecord">
+            <summary>
+            The CommandLineSwitchRecord is stored within the parser's collection of registered switches.
+            </summary>
+        </member>
+        <member name="T:BeingIT.CommandLineSwitchRecords">
+            <summary>
+            The collection of registered switches.
+            </summary>
+        </member>
+        <member name="T:BeingIT.CommandLineSwitchAttribute">
+            <summary>
+            Implements a basic command-line switch by taking the
+            switching name and the associated description.
+            </summary>
+            <remark>
+            Only currently is implemented for properties, so all
+            auto-switching variables should have a get/set method supplied.
+            </remark>
+        </member>
+        <member name="P:BeingIT.CommandLineSwitchAttribute.Name">
+            <summary>Accessor for retrieving the switch-name for an associated
+            property.</summary>
+        </member>
+        <member name="P:BeingIT.CommandLineSwitchAttribute.Description">
+            <summary>Accessor for retrieving the description for a switch of
+            an associated property.</summary>
+        </member>
+        <member name="M:BeingIT.CommandLineSwitchAttribute.#ctor(System.String,System.String)">
+            <summary>Attribute constructor.</summary>
+        </member>
+        <member name="T:BeingIT.CommandLineAliasAttribute">
+            <summary>
+            This class implements an alias attribute to work in conjunction
+            with the <see cref="T:BeingIT.CommandLineSwitchAttribute">CommandLineSwitchAttribute</see>
+            attribute.  If the CommandLineSwitchAttribute exists, then this attribute
+            defines an alias for it.
+            </summary>
+        </member>
+        <member name="T:BeingIT.ComponentModel.Progress">
+            <summary>
+            Progress class to help calculate progress percentage.
+            </summary>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Int32,System.Int32)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="currentStep">The value of the current step, ie current step = 1 out of 100.</param>
+            <param name="totalSteps">The value of the final step, ie total steps = 100.</param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Int64,System.Int64)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="currentStep">The value of the current step, ie current step = 1 out of 100.</param>
+            <param name="totalSteps">The value of the final step, ie total steps = 100.</param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Decimal,System.Decimal)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="currentStep">The value of the current step, ie current step = 1 out of 100.</param>
+            <param name="totalSteps">The value of the final step, ie total steps = 100.</param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="overallCurrentStepPercentage">The percentage value before the sub task started.</param>
+            <param name="overallNextStepPercentage">The percentage value required after all the sub tasks completes.</param>
+            <param name="currentStep">The value of the current step, ie current step = 1 out of 100.</param>
+            <param name="totalSteps">The value of the final step, ie total steps = 100.</param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Int32,System.Int32,System.Int64,System.Int64)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="overallCurrentStepPercentage">The percentage value before the sub task started.</param>
+            <param name="overallNextStepPercentage">The percentage value required after all the sub tasks completes.</param>
+            <param name="currentStep">The value of the current step, ie current step = 1 out of 100.</param>
+            <param name="totalSteps">The value of the final step, ie total steps = 100.</param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Int64,System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="overallCurrentStepPercentage">The percentage value before the sub task started.</param>
+            <param name="overallNextStepPercentage">The percentage value required after all the sub tasks completes.</param>
+            <param name="currentStep">The value of the current step, ie current step = 1 out of 100.</param>
+            <param name="totalSteps">The value of the final step, ie total steps = 100.</param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="overallCurrentStepPercentage">The percentage value before the sub task started.</param>
+            <param name="overallNextStepPercentage">The percentage value required after all the sub tasks completes.</param>
+            <param name="currentPercentage"></param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Decimal,System.Decimal,System.Int32,System.Int32)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="overallCurrentStepPercentage">The percentage value before the sub task started.</param>
+            <param name="overallNextStepPercentage">The percentage value required after all the sub tasks completes.</param>
+            <param name="currentStep">The value of the current step, ie current step = 1 out of 100.</param>
+            <param name="totalSteps">The value of the final step, ie total steps = 100.</param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Decimal,System.Decimal,System.Int64,System.Int64)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="overallCurrentStepPercentage">The percentage value before the sub task started.</param>
+            <param name="overallNextStepPercentage">The percentage value required after all the sub tasks completes.</param>
+            <param name="currentStep">The value of the current step, ie current step = 1 out of 100.</param>
+            <param name="totalSteps">The value of the final step, ie total steps = 100.</param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="M:BeingIT.ComponentModel.Progress.Calculate(System.Decimal,System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Calculates the current progress precentage value from the give parameters.
+            </summary>
+            <param name="overallCurrentStepPercentage">The percentage value before the sub task started.</param>
+            <param name="overallNextStepPercentage">The percentage value required after all the sub tasks completes.</param>
+            <param name="currentStep">The value of the current step, ie current step = 1 out of 100.</param>
+            <param name="totalSteps">The value of the final step, ie total steps = 100.</param>
+            <returns>The percentage value.</returns>
+        </member>
+        <member name="P:BeingIT.ComponentModel.ItemChangedEventArgs.Index">
+            <summary>
+            Gets the index of the item affected by the change.
+            </summary>
+        </member>
+        <member name="T:BeingIT.DateTimeTools">
+            <summary>
+            A collection of DateTime Tools.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.Today">
+            <summary>
+             Gets the current date.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.Now">
+            <summary>
+            Gets a System.DateTime object that is set to the current date and time on
+            this computer, expressed as the local time.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.StartOfToday">
+            <summary>
+             Gets the start of today.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.EndOfToday">
+            <summary>
+             Gets the end of today.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.StartOfWeek">
+            <summary>
+             Gets the start of the week, either Monday or the first day of the month.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.EndOfWeek">
+            <summary>
+             Gets the end of the week, either Sundat or the last day of the month.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.FirstWorkingDay">
+            <summary>
+            Gets the first working day for the current date.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.FirstDayOfWeek">
+            <summary>
+            Gets the first day of the week for the current date.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.LastDayOfWeek">
+            <summary>
+            Gets the last day of the week for the current date.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.FirstDayOfMonth">
+            <summary>
+            Gets the first day of the month for the current date.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.LastDayOfMonth">
+            <summary>
+            Gets the last day of the month for the current date.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.FirstDayOfYear">
+            <summary>
+            Gets the first day of the year for the current date.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.LastDayOfYear">
+            <summary>
+            Gets the last day of the year for the current date.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.CurrentMonth">
+            <summary>
+            Gets the name of the month for the current date.
+            </summary>
+        </member>
+        <member name="P:BeingIT.DateTimeTools.WeekNumber">
+            <summary>
+            Gets the week number for the current date.
+            </summary>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetStartOfDay(System.DateTime)">
+             <summary>
+             Gets the start of the day for the current date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetEndOfDay(System.DateTime)">
+             <summary>
+             Gets the end of the day day for the current date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetStartOfWeek(System.DateTime)">
+            <summary>
+            Gets the start of the week, either Monday or the first day of the month.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetEndOfWeek(System.DateTime)">
+            <summary>
+            Gets the end of the week, either Sunday or the last day of the month.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetFirstWorkingDay(System.DateTime)">
+             <summary>
+             Gets the first working day on or after the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetLastWorkingDay(System.DateTime)">
+             <summary>
+             Gets the last working day on or before the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetFirstDayOfWeek(System.DateTime,System.DayOfWeek)">
+             <summary>
+             Gets the first day of the week for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <param name="startOfWeek">The starting day of the week.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetFirstDayOfWeek(System.DateTime)">
+             <summary>
+             Gets the first day of the week for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetLastDayOfWeek(System.DateTime,System.DayOfWeek)">
+             <summary>
+             Gets the last day of the week for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <param name="startOfWeek">The starting day of the week.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetLastDayOfWeek(System.DateTime)">
+             <summary>
+             Gets the last day of the week for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetFirstDayOfMonth(System.DateTime)">
+             <summary>
+             Gets the first day of the month for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetLastDayOfMonth(System.DateTime)">
+            <summary>
+            Gets the last day of the month for the specified date.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetFirstDayOfYear(System.DateTime)">
+             <summary>
+             Gets the first day of the year for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetLastDayOfYear(System.DateTime)">
+            <summary>
+            Gets the last day of the year for the specified date.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetWeekDaysCount(System.DateTime,System.DateTime)">
+            <summary>
+            Gets the number of week days between a certain date range.
+            </summary>
+            <param name="dateTimeStart">The starting date.</param>
+            <param name="dateTimeEnd">The ending date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetWeekDaysCount(System.DateTime,System.DateTime,System.DateTime[])">
+            <summary>
+            Gets the number of week days between a certain date range.
+            </summary>
+            <param name="dateTimeStart">The starting date.</param>
+            <param name="dateTimeEnd">The ending date.</param>
+            <param name="excludedDays">Any specific days to exclude from the count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetWeekendDaysCount(System.DateTime,System.DateTime)">
+            <summary>
+            Gets the number of weekend days between a certain date range.
+            </summary>
+            <param name="dateTimeStart">The starting date.</param>
+            <param name="dateTimeEnd">The ending date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetMonthName(System.DateTime)">
+            <summary>
+            Gets the name of the month for the specified date.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetWeekNumber(System.DateTime)">
+            <summary>
+            Gets the the week number for the specified date.
+            This is based on International Standard ISO 8601
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.Min(System.DateTime,System.DateTime)">
+            <summary>
+            Returns the smaller date between the two date entries.
+            </summary>
+            <param name="dateTime1">The first date entry.</param>
+            <param name="dateTime2">The other date entry.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.Max(System.DateTime,System.DateTime)">
+            <summary>
+            Returns the larger date between the two date entries.
+            </summary>
+            <param name="dateTime1">The first date entry.</param>
+            <param name="dateTime2">The other date entry.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeTools.GetTimeSpanInMonths(System.DateTime,System.DateTime)">
+            <summary>
+            Gets the number of months between a certain date range.
+            </summary>
+            <param name="dateTimeStart">The starting date.</param>
+            <param name="dateTimeEnd">The ending date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.StartOfDay(System.DateTime)">
+             <summary>
+             Gets the start of the day for the current date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.EndOfDay(System.DateTime)">
+             <summary>
+             Gets the end of the day day for the current date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.StartOfWeek(System.DateTime)">
+            <summary>
+            Gets the start of the week, either Monday or the first day of the month.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.EndOfWeek(System.DateTime)">
+            <summary>
+            Gets the end of the week, either Sunday or the last day of the month.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.FirstWorkingDay(System.DateTime)">
+             <summary>
+             Gets the first working day on or after the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.LastWorkingDay(System.DateTime)">
+             <summary>
+             Gets the last working day on or before the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.FirstDayOfWeek(System.DateTime,System.DayOfWeek)">
+             <summary>
+             Gets the first day of the week for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <param name="startOfWeek">The starting day of the week.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.FirstDayOfWeek(System.DateTime)">
+             <summary>
+             Gets the first day of the week for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.LastDayOfWeek(System.DateTime,System.DayOfWeek)">
+             <summary>
+             Gets the last day of the week for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <param name="startOfWeek">The starting day of the week.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.LastDayOfWeek(System.DateTime)">
+             <summary>
+             Gets the last day of the week for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.FirstDayOfMonth(System.DateTime)">
+             <summary>
+             Gets the first day of the month for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.LastDayOfMonth(System.DateTime)">
+            <summary>
+            Gets the last day of the month for the specified date.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.FirstDayOfYear(System.DateTime)">
+             <summary>
+             Gets the first day of the year for the specified date.
+             </summary>
+            <param name="dateTime">The DateTime instance.</param>
+             <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.LastDayOfYear(System.DateTime)">
+            <summary>
+            Gets the last day of the year for the specified date.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.WeekDaysCount(System.DateTime,System.DateTime)">
+            <summary>
+            Gets the number of week days between a certain date range.
+            </summary>
+            <param name="dateTimeStart">The starting date.</param>
+            <param name="dateTimeEnd">The ending date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.WeekDaysCount(System.DateTime,System.DateTime,System.DateTime[])">
+            <summary>
+            Gets the number of week days between a certain date range.
+            </summary>
+            <param name="dateTimeStart">The starting date.</param>
+            <param name="dateTimeEnd">The ending date.</param>
+            <param name="excludedDays">Any specific days to exclude from the count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.WeekendDaysCount(System.DateTime,System.DateTime)">
+            <summary>
+            Gets the number of weekend days between a certain date range.
+            </summary>
+            <param name="dateTimeStart">The starting date.</param>
+            <param name="dateTimeEnd">The ending date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.MonthName(System.DateTime)">
+            <summary>
+            Gets the name of the month for the specified date.
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.WeekNumber(System.DateTime)">
+            <summary>
+            Gets the the week number for the specified date.
+            This is based on International Standard ISO 8601
+            </summary>
+            <param name="dateTime">The DateTime instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.Min(System.DateTime,System.DateTime)">
+            <summary>
+            Returns the smaller date between the two date entries.
+            </summary>
+            <param name="dateTime1">The first date entry.</param>
+            <param name="dateTime2">The other date entry.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.Max(System.DateTime,System.DateTime)">
+            <summary>
+            Returns the larger date between the two date entries.
+            </summary>
+            <param name="dateTime1">The first date entry.</param>
+            <param name="dateTime2">The other date entry.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.DateTimeExtensions.TimeSpanInMonths(System.DateTime,System.DateTime)">
+            <summary>
+            Gets the number of months between a certain date range.
+            </summary>
+            <param name="dateTimeStart">The starting date.</param>
+            <param name="dateTimeEnd">The ending date.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeingIT.Enums">
+            <summary>
+            Provides a static utility object of methods and properties to interact
+            with enumerated types.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Enums.DescriptionAttribute">
+            <summary>
+            Provides a description for an enumerated type.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Enums.DescriptionAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeingIT.Enums.DescriptionAttribute"/> class.
+            </summary>
+            <param name="description">The description to store in this attribute.</param>
+        </member>
+        <member name="P:BeingIT.Enums.DescriptionAttribute.Description">
+            <summary>
+            Gets the description stored in this attribute.
+            </summary>
+            <value>The description stored in the attribute.</value>
+        </member>
+        <member name="T:BeingIT.Enums.EnumList">
+            <summary>
+            EnumList Class.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Enums.EnumDescription">
+            <summary>
+            EnumDescription Class.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Enums.EnumDescription.#ctor">
+            <summary>
+            EnumDescription Constructor.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Enums.EnumDescription.#ctor(System.Enum)">
+            <summary>
+            EnumDescription Constructor.
+            </summary>
+            <param name="enm">The enum.</param>
+        </member>
+        <member name="M:BeingIT.Enums.EnumDescription.#ctor(System.Enum,System.String)">
+            <summary>
+            EnumDescription Constructor.
+            </summary>
+            <param name="enm">The enum.</param>
+            <param name="description">The description of the enum.</param>
+        </member>
+        <member name="P:BeingIT.Enums.EnumDescription.Enum">
+            <summary>
+            Gets or sets the enum.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Enums.EnumDescription.Description">
+            <summary>
+            Gets or sets the description of the enum.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Enums.EnumDescriptionList">
+            <summary>
+            EnumDescriptionList Class.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Enums.EnumDescriptionList.Add(System.Enum)">
+            <summary>
+            Adds an object to the end of the <see cref="T:System.Collections.Generic.List`1" />
+            </summary>
+            <param name="enm">The enum.</param>
+        </member>
+        <member name="M:BeingIT.Enums.EnumDescriptionList.Add(System.Enum,System.String)">
+            <summary>
+            Adds an object to the end of the <see cref="T:System.Collections.Generic.List`1" />
+            </summary>
+            <param name="enm">The enum.</param>
+            <param name="description">The description.</param>
+        </member>
+        <member name="M:BeingIT.Enums.Parse(System.Type,System.String)">
+            <summary>
+            Converts the string representation of the name or numeric value of one or more enumerated constants to an equivalent enumerated object.
+            </summary>
+            <param name="enumType">The type of <see cref="T:System.Enum" />.</param>
+            <param name="value">The <see cref="T:System.Enum" />'s value.</param>
+            <returns>An <see cref="T:System.Enum"/>.</returns>
+        </member>
+        <member name="M:BeingIT.Enums.GetValue(System.Type,System.String)">
+            <summary>
+            Converts the string representation of the name or description value of one or more enumerated constants to an equivalent enumerated object.
+            </summary>
+            <param name="enumType">The type of <see cref="T:System.Enum" />.</param>
+            <param name="description">The <see cref="T:BeingIT.Enums.DescriptionAttribute" /> text of the <see cref="T:System.Enum" />.</param>
+            <returns>An <see cref="T:System.Enum"/>.</returns>
+        </member>
+        <member name="M:BeingIT.Enums.GetDescription(System.Type,System.String)">
+            <summary>
+            Gets the <see cref="T:BeingIT.Enums.DescriptionAttribute" /> of an <see cref="T:System.Enum" /> type value.
+            </summary>
+            <param name="enumType">The type of <see cref="T:System.Enum" />.</param>
+            <param name="value">The <see cref="T:System.Enum" />'s value.</param>
+            <returns>A string containing the text of the <see cref="T:BeingIT.Enums.DescriptionAttribute"/>.</returns>
+        </member>
+        <member name="M:BeingIT.Enums.GetDescription(System.Enum)">
+            <summary>
+            Gets the <see cref="T:BeingIT.Enums.DescriptionAttribute" /> of an <see cref="T:System.Enum" /> type value.
+            </summary>
+            <param name="value">The <see cref="T:System.Enum" />'s value.</param>
+            <returns>A string containing the text of the <see cref="T:BeingIT.Enums.DescriptionAttribute"/>.</returns>
+        </member>
+        <member name="M:BeingIT.Enums.ToEnumList(System.Type)">
+            <summary>
+            Converts the <see cref="T:System.Enum" /> type to an <see cref="T:System.Collections.Generic.IList`1" /> compatible object.
+            </summary>
+            <param name="enumType">The <see cref="T:System.Enum"/> type.</param>
+            <returns>An containing the enumerated type value and description.</returns>
+        </member>
+        <member name="M:BeingIT.Enums.ToEnumDescriptionList(System.Type)">
+            <summary>
+            Converts the <see cref="T:System.Enum" /> type to an <see cref="T:System.Collections.Generic.IList`1" /> compatible object.
+            </summary>
+            <param name="enumType">The <see cref="T:System.Enum"/> type.</param>
+            <returns>An containing the enumerated type value and description.</returns>
+        </member>
+        <member name="M:BeingIT.Enums.ToKeyValuePairList(System.Type)">
+            <summary>
+            Converts the <see cref="T:System.Enum" /> type to an <see cref="T:System.Collections.Generic.IList`1" /> compatible object.
+            </summary>
+            <param name="enumType">The <see cref="T:System.Enum"/> type.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IList`1" /> containing the enumerated type value and description.</returns>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.Desktop">
+            <summary>
+            The logical Desktop rather than the physical file system location.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.Programs">
+            <summary>
+            The directory that contains the user's program groups.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.Personal">
+            <summary>
+            The directory that serves as a common repository for documents.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.MyDocuments">
+            <summary>
+            The "My Documents" folder.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.Favorites">
+            <summary>
+            The directory that serves as a common repository for the user's favorite items.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.Startup">
+            <summary>
+            The directory that corresponds to the user's Startup program group.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.Recent">
+            <summary>
+            The directory that contains the user's most recently used documents.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.SendTo">
+            <summary>
+            The directory that contains the Send To menu items.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.StartMenu">
+            <summary>
+            The directory that contains the Start menu items.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.MyMusic">
+            <summary>
+            The "My Music" folder.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.DesktopDirectory">
+            <summary>
+            The directory used to physically store file objects on the desktop.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.MyComputer">
+            <summary>
+            The "My Computer" folder.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.Templates">
+            <summary>
+            The directory that serves as a common repository for document templates.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.ApplicationData">
+            <summary>
+            The directory that serves as a common repository for application-specific
+            data for the current roaming user.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.LocalApplicationData">
+            <summary>
+            The directory that serves as a common repository for application-specific
+            data that is used by the current, non-roaming user.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.InternetCache">
+            <summary>
+            The directory that serves as a common repository for temporary Internet files.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.Cookies">
+            <summary>
+            The directory that serves as a common repository for Internet cookies.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.History">
+            <summary>
+            The directory that serves as a common repository for Internet history items.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.CommonApplicationData">
+            <summary>
+            The directory that serves as a common repository for application-specific
+            data that is used by all users.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.System">
+            <summary>
+            The System directory.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.ProgramFiles">
+            <summary>
+            The program files directory.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.MyPictures">
+            <summary>
+            The "My Pictures" folder.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.SpecialFolder.CommonProgramFiles">
+            <summary>
+            The directory for components that are shared across applications.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Environment.KnownOperatingSystem">
+            <summary>
+            Known Operating Systems
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Unix">
+            <summary>
+            Unix
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.WindowsCE">
+            <summary>
+            Windows CE
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Windows3_1">
+            <summary>
+            Windows 3.1
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Windows95">
+            <summary>
+            Windows 95
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Windows98">
+            <summary>
+            Windows 98
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Windows98_2nd">
+            <summary>
+            Windows 98 2nd Edition
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.WindowsME">
+            <summary>
+            Windows ME
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.WindowsNT3">
+            <summary>
+            Windows NT 3.0
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.WindowsNT4">
+            <summary>
+            Windows NT 4.0
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Windows2000">
+            <summary>
+            Windows 2000
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.WindowsXP">
+            <summary>
+            Windows XP
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Windows2003">
+            <summary>
+            Windows 2003
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.WindowsVista">
+            <summary>
+            Windows Vista or Windows 2008
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Windows7">
+            <summary>
+            Windows 7 or Windows 2008 R2
+            </summary>
+        </member>
+        <member name="F:BeingIT.Environment.KnownOperatingSystem.Windows7Above">
+            <summary>
+            Windows 7 or Windows 2008 R2 and above
+            </summary>
+        </member>
+        <member name="M:BeingIT.Environment.GetCommandLineArgs">
+            <summary>
+            Returns a string array containing the command-line arguments for the current process.
+            </summary>
+            <returns>An array of string where each element contains a command-line argument. The
+            first element is the executable file name, and the following zero or more
+            elements contain the remaining command-line arguments.</returns>
+        </member>
+        <member name="P:BeingIT.Environment.CommandLine">
+            <summary>
+            Gets the command line for this process.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Environment.UserName">
+            <summary>
+            Gets the user name of the person who is currently logged on to the Windows operating system.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Environment.MachineName">
+            <summary>
+            Gets the NetBIOS name of this local computer.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Environment.OSVersion">
+            <summary>
+            Gets an System.OperatingSystem object that contains the current platform identifier and version number.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Environment.OSType">
+            <summary>
+            Gets an BeingIT.KnownOperatingSystem object that contains the current known operating system.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Environment.NewLine">
+            <summary>
+            Gets the newline string defined for this environment.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Environment.GetEnvironmentVariable(System.String)">
+            <summary>
+            Retrieves the value of an environment variable from the current process.
+            </summary>
+            <param name="variable">The name of the environment variable.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Environment.GetEnvironmentVariable(System.String,System.EnvironmentVariableTarget)">
+            <summary>
+            Retrieves the value of an environment variable from the current process or
+            from the Windows operating system registry key for the current user or local
+            machine.
+            </summary>
+            <param name="variable">The name of an environment variable.</param>
+            <param name="target">One of the System.EnvironmentVariableTarget values.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Environment.GetSystemDriveLetter">
+            <summary>
+            Returns the drive letter of the drive that contains the system folder.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Environment.GetFolderPath(System.Environment.SpecialFolder)">
+            <summary>
+            Gets the path to the system special folder identified by the specified enumeration.
+            </summary>
+            <param name="folder">An enumerated constant that identifies a system special folder.</param>
+            <returns>The path to the specified system special folder, if that folder physically
+            exists on your computer; otherwise, the empty string ("").  A folder will
+            not physically exist if the operating system did not create it, the existing
+            folder was deleted, or the folder is a virtual directory, such as My Computer,
+            which does not correspond to a physical path.</returns>
+            <exception cref="T:System.ArgumentException">folder is not a member of System.Environment.SpecialFolder.</exception>
+        </member>
+        <member name="M:BeingIT.Environment.GetFolderPath(BeingIT.Environment.SpecialFolder)">
+            <summary>
+            Gets the path to the system special folder identified by the specified enumeration.
+            </summary>
+            <param name="folder">An enumerated constant that identifies a system special folder.</param>
+            <returns>The path to the specified system special folder, if that folder physically
+            exists on your computer; otherwise, the empty string ("").  A folder will
+            not physically exist if the operating system did not create it, the existing
+            folder was deleted, or the folder is a virtual directory, such as My Computer,
+            which does not correspond to a physical path.</returns>
+            <exception cref="T:System.ArgumentException">folder is not a member of System.Environment.SpecialFolder.</exception>
+        </member>
+        <member name="M:BeingIT.Environment.GetEnvironmentVariables">
+            <summary>
+            Retrieves all environment variable names and their values from the current
+            process.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BeingIT.Generic.Comparer">
+            <summary>
+            Provides methods to compare one Entity to another and provide a result with comparison findings.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Generic.Comparer.Compare``1(``0,``0)">
+            <summary>
+            Comparers two object's property values with one other and returns a result for the comparison. 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entityA">The first object to compare.</param>
+            <param name="entityB">The second object to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Generic.Comparer.Compare``1(``0,``0,System.String[])">
+            <summary>
+            Comparers two object's property values with one other and returns a result for the comparison. 
+            </summary>
+            <typeparam name="T">The type of the objects.</typeparam>
+            <param name="entityA">The first object to compare.</param>
+            <param name="entityB">The second object to compare.</param>
+            <param name="excludedPropertyNames">A list of property names that should be excluded from the comparison.</param>
+            <returns></returns>
+        </member>
+        <member name="P:BeingIT.Generic.PropertyCompareInfo.Name">
+            <summary>
+            Gets or sets the name of the property.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Generic.PropertyCompareInfo.ValueA">
+            <summary>
+            Gets or sets the value of object A.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Generic.PropertyCompareInfo.ValueB">
+            <summary>
+            Gets or sets the value of object B.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Generic.PropertyCompareInfo.IsEqual">
+            <summary>
+            Gets a value to indicate if object A and B is equal.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Generic.PropertyCompareResult.HasDifferences">
+            <summary>
+            Gets a value to indicate if there are differences in the property comparisons.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Generic.PropertyCompareResult.Differences">
+            <summary>
+            Gets a list of diffences in the property comparisons.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Generic.PropertyCompareResult.Remove(System.String)">
+            <summary>
+            Removes the first occurrence of a matching name from the list.
+            </summary>
+            <param name="name">The name of the property to remove.</param>
+        </member>
+        <member name="M:BeingIT.Generic.PropertyCompareResult.Remove(System.String[])">
+            <summary>
+            Removes the first occurrence of a matching name from the list.
+            </summary>
+            <param name="names">The name of the properties to remove.</param>
+        </member>
+        <member name="T:BeingIT.Generic.Converter">
+            <summary>
+            Provides methods to convert from one Entity to another and also Lists and vice versa.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.PopulateEntity``1(``0,System.Object,System.String[])">
+            <summary>
+            Populates an entity's properties with values from matching properties in the given object.
+            </summary>
+            <typeparam name="T">The type of entity that will be populated.</typeparam>
+            <param name="entity">The destination entity's properties that will be set.</param>
+            <param name="objct">The source object used to get the property values from.</param>
+            <param name="excludedPropertyNames">A list of property names that should be excluded from the comparison.</param>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.PopulateEntity(System.Object,System.Object,System.String[])">
+            <summary>
+            Populates an entity's properties with values from matching properties in the given object.
+            </summary>
+            <param name="entity">The destination entity's properties that will be set.</param>
+            <param name="objct">The source object used to get the property values from.</param>
+            <param name="excludedPropertyNames">A list of property names that should be excluded from the comparison.</param>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.PopulateList``1(``0,System.Object[])">
+            <summary>
+            Populates a list with data from the objects array.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="list">The destination list to populate.</param>
+            <param name="objects">The source object array used to populate the list with.</param>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.PopulateList``1(``0,System.Collections.IList)">
+            <summary>
+            Populates a list with data from the collection.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="list">The destination list to populate.</param>
+            <param name="collection">The source collection used to populate the list with.</param>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.PopulateList``1(``0,System.Collections.IEnumerable)">
+            <summary>
+            Populates a list with data from the enumerable.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="list">The destination list to populate.</param>
+            <param name="enumerable">The source enumerable used to populate the list with.</param>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.PopulateArray``1(``0[],System.Object[])">
+            <summary>
+            Populates an array with data from the objects array.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="array">The destination array to populate.</param>
+            <param name="objects">The source objects used to populate the array with.</param>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.PopulateArray``1(``0[],System.Collections.IList)">
+            <summary>
+            Populates an array with data from the collection.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="array">The destination array to populate.</param>
+            <param name="collection">The source objects used to populate the array with.</param>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.ToEntity``1(System.Object,System.String[])">
+            <summary>
+            Converts the object to an entity by matching propery names.
+            </summary>
+            <typeparam name="T">The type of entity to convert to.</typeparam>
+            <param name="objct">The source object used to get the property values from.</param>
+            <returns>The converted entity.</returns>
+            <param name="excludedPropertyNames">A list of property names that should be excluded from the comparison.</param>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.ToEntity(System.Object,System.Type,System.String[])">
+            <summary>
+            Converts the object to an entity by matching propery names.
+            </summary>
+            <param name="objct">The source object used to get the property values from.</param>
+            <param name="entityType">The type of entity to create and populate from the object.</param>
+            <returns>The converted entity.</returns>
+            <param name="excludedPropertyNames">A list of property names that should be excluded from the comparison.</param>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.ToList``1(System.Object[])">
+            <summary>
+            Converts an object array to a list.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="objects">The source array containing the data used to populate the list with.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.ToList``1(System.Collections.IEnumerable)">
+            <summary>
+            Converts an enumerable to a list.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="enumerable">The source enumerable containing the data used to populate the list with.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.ToList``1(System.Collections.IList)">
+            <summary>
+            Converts a collection to a list.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="collection">The source collection containing the data used to populate the list with.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.ToArray``1(System.Object[])">
+            <summary>
+            Converts an object array to an array.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="objects">The source array containing the data used to populate the list with.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Generic.Converter.ToArray``1(System.Collections.IList)">
+            <summary>
+            Converts a collection to an array.
+            </summary>
+            <typeparam name="T">The type of the destination entity.</typeparam>
+            <param name="collection">The source collection containing the data used to populate the list with.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeingIT.Generic.IID">
+            <summary>
+            IID Interface
+            </summary>
+        </member>
+        <member name="P:BeingIT.Generic.IID.ID">
+            <summary>
+            Gets the ID.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Generic.IName">
+            <summary>
+            IName Interface
+            </summary>
+        </member>
+        <member name="P:BeingIT.Generic.IName.Name">
+            <summary>
+            Gets the Name.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Generic.IDescription">
+            <summary>
+            IDescription Interface
+            </summary>
+        </member>
+        <member name="P:BeingIT.Generic.IDescription.Description">
+            <summary>
+            Gets the Description.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Generic.IIDnName">
+            <summary>
+             IIDnName Interface
+            </summary>
+        </member>
+        <member name="T:BeingIT.Generic.IIDnNameDescription">
+            <summary>
+             IIDnNameDescription Interface
+            </summary>
+        </member>
+        <member name="T:BeingIT.Generic.InterfaceImplementer">
+            <summary>
+            A class used to implement an interface at runtime.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Objects">
+            <summary>
+            BeingIT's extended Objects class.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Objects.IsNumeric(System.Object)">
+            <summary>
+            Returns true if the object is of a numeric type.
+            </summary>
+            <param name="value">The object value.</param>
+            <returns>True if the object is of a numeric type.</returns>
+        </member>
+        <member name="M:BeingIT.Objects.IsBoolean(System.Object)">
+            <summary>
+            Returns true if the object is of type bool.
+            </summary>
+            <param name="value">The object value.</param>
+            <returns>True if the object is of type bool.</returns>
+        </member>
+        <member name="M:BeingIT.Objects.IsDateTime(System.Object)">
+            <summary>
+            Returns true if the object is of type DateTime.
+            </summary>
+            <param name="value">The object value.</param>
+            <returns>True if the object is of type DateTime.</returns>
+        </member>
+        <member name="M:BeingIT.Objects.IsString(System.Object)">
+            <summary>
+            Returns true if the object is of type string.
+            </summary>
+            <param name="value">The object value.</param>
+            <returns>True if the object is of type string.</returns>
+        </member>
+        <member name="M:BeingIT.Objects.#ctor">
+            <summary>
+            Initializes a new instance of the BeingIT.Objects class.
+            </summary>
+        </member>
+        <member name="T:BeingIT.OperatingSystem">
+            <summary>
+            Provides detailed information about the host operating system.
+            </summary>
+        </member>
+        <member name="T:BeingIT.OperatingSystem.SoftwareArchitecture">
+            <summary>
+            Software Architecture
+            </summary>
+        </member>
+        <member name="T:BeingIT.OperatingSystem.ProcessorArchitecture">
+            <summary>
+            Processor Architecture
+            </summary>
+        </member>
+        <member name="M:BeingIT.OperatingSystem.#ctor">
+            <summary>
+            Constructor for the host operating system information class.
+            </summary>
+        </member>
+        <member name="P:BeingIT.OperatingSystem.Platform">
+            <summary>
+            Gets a System.PlatformID enumeration value that identifies the operating
+            system platform.
+            </summary>
+        </member>
+        <member name="P:BeingIT.OperatingSystem.Version">
+            <summary>
+            Gets the full version of the operating system running on this computer.
+            </summary>
+        </member>
+        <member name="P:BeingIT.OperatingSystem.ProgramBits">
+            <summary>
+            Determines if the current application is 32 or 64-bit.
+            </summary>
+        </member>
+        <member name="P:BeingIT.OperatingSystem.OSBits">
+            <summary>
+            Determines if the OS is 32 or 64-bit.
+            </summary>
+        </member>
+        <member name="P:BeingIT.OperatingSystem.ProcessorBits">
+            <summary>
+            Determines if the current processor is 32 or 64-bit.
+            </summary>
+        </member>
+        <member name="P:BeingIT.OperatingSystem.Name">
+            <summary>
+            Gets the name of the operating system running on this computer.
+            </summary>
+        </member>
+        <member name="P:BeingIT.OperatingSystem.Edition">
+            <summary>
+            Gets the edition of the operating system running on this computer.
+            </summary>
+        </member>
+        <member name="P:BeingIT.OperatingSystem.ServicePack">
+            <summary>
+            Gets the service pack information of the operating system running on this computer.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Resources">
+            <summary>
+            Resources Class
+            </summary>
+        </member>
+        <member name="M:BeingIT.Resources.GetResourcesByResourcePath(System.String)">
+            <summary>
+            Gets an array of resource names by a given resource path.
+            </summary>
+            <param name="resourcePath">The relative path to the resource in namespace notation format.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.GetResourcesByResourcePath(System.String,System.Reflection.Assembly)">
+            <summary>
+            Gets an array of resource names by a given resource path in the given assembly.
+            </summary>
+            <param name="resourcePath">The relative path to the resource in namespace notation format.</param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.Exists(System.String)">
+            <summary>
+            Checks if a resource exists for a given resource name.
+            </summary>
+            <param name="resourceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.Exists(System.String,System.Reflection.Assembly)">
+            <summary>
+            Checks if a resource exists for a given resource name in the given assembly.
+            </summary>
+            <param name="resourceName"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.GetText(System.String)">
+            <summary>
+            Gets the Resource text for a given resource name.
+            </summary>
+            <param name="resourceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.GetText(System.String,System.Reflection.Assembly)">
+            <summary>
+            Gets the Resource text for a given resource name in the given Assembly.
+            </summary>
+            <param name="resourceName"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.GetStream(System.String)">
+            <summary>
+            Gets the Resource stream for a given resource name.
+            </summary>
+            <param name="resourceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.GetStream(System.String,System.Reflection.Assembly)">
+            <summary>
+            Gets the Resource stream for a given resource name in the given Assembly.
+            </summary>
+            <param name="resourceName"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.GetImage(System.String)">
+            <summary>
+            Gets the Resource image for a given resource name.
+            </summary>
+            <param name="resourceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.GetImage(System.String,System.Reflection.Assembly)">
+            <summary>
+            Gets the Resource image for a given resource name.
+            </summary>
+            <param name="resourceName"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.SaveToFile(System.String,System.IO.FileInfo)">
+            <summary>
+            Saves a resource to a given location
+            </summary>
+            <param name="resourceName"></param>
+            <param name="outPutFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.SaveToFile(System.String,System.IO.FileInfo,System.Boolean)">
+            <summary>
+            Saves a resource to a given location
+            </summary>
+            <param name="resourceName"></param>
+            <param name="outPutFile"></param>
+            <param name="overwrite"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.SaveToFile(System.String,System.IO.FileInfo,System.Reflection.Assembly)">
+            <summary>
+            Saves a resource to a given location
+            </summary>
+            <param name="resourceName"></param>
+            <param name="outPutFile"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.SaveToFile(System.String,System.IO.FileInfo,System.Boolean,System.Reflection.Assembly)">
+            <summary>
+            Saves a resource to a given location
+            </summary>
+            <param name="resourceName"></param>
+            <param name="outPutFile"></param>        
+            <param name="overwrite"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.SaveToDirectory(System.String,System.IO.DirectoryInfo)">
+            <summary>
+            Saves a resource to a given location
+            </summary>
+            <param name="resourceName"></param>
+            <param name="outPutDirectory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.SaveToDirectory(System.String,System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Saves a resource to a given location
+            </summary>
+            <param name="resourceName"></param>
+            <param name="outPutDirectory"></param>
+            <param name="overwrite"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.SaveToDirectory(System.String,System.IO.DirectoryInfo,System.Reflection.Assembly)">
+            <summary>
+            Saves a resource to a given location
+            </summary>
+            <param name="resourceName"></param>
+            <param name="outPutDirectory"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Resources.SaveToDirectory(System.String,System.IO.DirectoryInfo,System.Boolean,System.Reflection.Assembly)">
+            <summary>
+            Saves a resource to a given location
+            </summary>
+            <param name="resourceName"></param>
+            <param name="outPutDirectory"></param>
+            <param name="assembly"></param>
+            <param name="overwrite"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BeingIT.Settings">
+            <summary>
+            User Settings class.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Settings.StoragePath">
+            <summary>
+            Storage Location Path.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Settings.StoragePath.Local">
+            <summary>
+            The directory that serves as a common repository for the current, non-roaming user.
+            </summary>
+        </member>
+        <member name="F:BeingIT.Settings.StoragePath.Roaming">
+            <summary>
+            A directory location that serves as a common repository for the current roaming user.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Settings.Section">
+            <summary>
+            User Settings Section class.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.Section.#ctor(BeingIT.ISettings,System.String)">
+            <summary>
+            Section Constructor
+            </summary>
+            <param name="parent">The parent of the Section.</param>
+            <param name="name">The unique Name of Section.</param>
+        </member>
+        <member name="P:BeingIT.Settings.Section.Item(System.String)">
+            <summary>
+            Gets or sets a Setting Value for a given key.
+            </summary>
+            <param name="key">The unique Setting Key.</param>
+            <returns>The Setting Value.</returns>
+        </member>
+        <member name="P:BeingIT.Settings.Section.Parent">
+            <summary>
+            Gets or sets the parent of the Section.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Settings.Section.Name">
+            <summary>
+            Gets or sets the section Name.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Settings.Section.List">
+            <summary>
+            Gets or sets the Settings List.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Settings.Section.Sections">
+            <summary>
+            Gets or sets the Settings Sections.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.Section.Get(System.String)">
+            <summary>
+            Gets a Setting Value based on the Key
+            </summary>
+            <param name="key">The unique Setting Key.</param>
+            <returns>The Setting Value.</returns>
+        </member>
+        <member name="M:BeingIT.Settings.Section.Set(System.String,System.String)">
+            <summary>
+            Sets a Setting Value based on a Key
+            </summary>
+            <param name="key">The unique Setting Key.</param>
+            <param name="value">The Setting Value.</param>
+            <returns>True is the Setting was successfully Set.</returns>
+        </member>
+        <member name="M:BeingIT.Settings.Section.ToString">
+            <summary>
+            Returns the amount of settings and sections as text.
+            </summary>
+            <returns>The amount of settings and sections as text.</returns>
+        </member>
+        <member name="M:BeingIT.Settings.Section.Dispose">
+            <summary>
+            Disposes all resources.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Settings.SectionCollection">
+            <summary>
+            User Settings Section Collection class.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Settings.SectionCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the Section at a given index.
+            </summary>
+            <param name="index">The index of the Section in the Collection.</param>
+            <returns>The Section at the given index.</returns>
+        </member>
+        <member name="P:BeingIT.Settings.SectionCollection.Item(System.String)">
+            <summary>
+            Gets or sets the Section with a given name.
+            </summary>
+            <param name="name">The name of the Section in the Collection.</param>
+            <returns>The Section at the given index.</returns>
+        </member>
+        <member name="M:BeingIT.Settings.SectionCollection.Contains(BeingIT.Settings.Section)">
+            <summary>
+            Determines whether the Collection already contains the given section.
+            </summary>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.SectionCollection.Contains(System.String)">
+            <summary>
+            Determines whether the Collection already contains the given section name.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.SectionCollection.IndexOf(System.String)">
+            <summary>
+            Returns the index of the Section with the given name.
+            </summary>
+            <param name="name">The name of the section.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.SectionCollection.Remove(System.String)">
+            <summary>
+            Remove a Section with the given name from the collection.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:BeingIT.Settings.SectionCollection.Add(BeingIT.Settings.Section)">
+            <summary>
+            Adds an Section to the Settings Collection.
+            </summary>
+            <param name="section">The Settings Section.</param>
+            <returns>The Index of the Section in the Collection.</returns>
+        </member>
+        <member name="M:BeingIT.Settings.SectionCollection.Add(System.String)">
+            <summary>
+            Adds an Section to the Settings Collection.
+            </summary>
+            <param name="name">The name of the new Settings Section.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.SectionCollection.Get(System.String)">
+            <summary>
+            Gets a Section by the given name from the collection.
+            </summary>
+            <param name="name">The na e of the section.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.SectionCollection.Set(BeingIT.Settings.Section)">
+            <summary>
+            Sets the Section in the collection.
+            </summary>
+            <param name="section">The section to set.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.SectionCollection.ToString">
+            <summary>
+            The count of the settings collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BeingIT.Settings.CultureInfo">
+            <summary>
+            Gets the Culture Info.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.UTF8ByteArrayToString(System.Byte[])">
+            <summary>
+            Convert a Byte Array into a String
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.StringToUTF8ByteArray(System.String)">
+            <summary>
+            Convert a String into a Byte Array
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.Serialize(System.Object)">
+            <summary>
+            Serializes an Object Instance into a string.
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.Deserialize(System.Type,System.String)">
+            <summary>
+            Deserializes a String into an Object instance.
+            </summary>
+            <param name="type"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.GetStoragePath(BeingIT.Settings.StoragePath)">
+            <summary>
+            Returns an instance to the storage path.
+            </summary>
+            <param name="storagePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.GetStoragePath(System.Boolean,BeingIT.Settings.StoragePath)">
+            <summary>
+            Returns an instance to the storage path.
+            </summary>
+            <param name="versionSpecific"></param>
+            <param name="storagePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.GetStoragePath(System.Reflection.Assembly,BeingIT.Settings.StoragePath)">
+            <summary>
+            Returns an instance to the storage path.
+            </summary>
+            <param name="assembly"></param>
+            <param name="storagePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.GetStoragePath(System.Reflection.Assembly,System.Boolean,BeingIT.Settings.StoragePath)">
+            <summary>
+            Returns an instance to the storage path.
+            </summary>
+            <param name="assembly"></param>
+            <param name="versionSpecific"></param>
+            <param name="storagePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.GetStoragePath(BeingIT.Settings.StoragePath,System.Boolean)">
+            <summary>
+            Returns an instance to the storage path with an option to auto create it if it does not exist.
+            </summary>
+            <param name="storagePath"></param>
+            <param name="autoCreate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.GetStoragePath(System.Boolean,BeingIT.Settings.StoragePath,System.Boolean)">
+            <summary>
+            Returns an instance to the storage path with an option to auto create it if it does not exist.
+            </summary>
+            <param name="versionSpecific"></param>
+            <param name="storagePath"></param>
+            <param name="autoCreate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.GetStoragePath(System.Reflection.Assembly,BeingIT.Settings.StoragePath,System.Boolean)">
+            <summary>
+            Returns an instance to the storage path with an option to auto create it if it does not exist.
+            </summary>
+            <param name="assembly"></param>
+            <param name="storagePath"></param>
+            <param name="autoCreate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.GetStoragePath(System.Reflection.Assembly,System.Boolean,BeingIT.Settings.StoragePath,System.Boolean)">
+            <summary>
+            Returns an instance to the storage path with an option to auto create it if it does not exist.
+            </summary>
+            <param name="assembly"></param>
+            <param name="versionSpecific"></param>
+            <param name="storagePath"></param>
+            <param name="autoCreate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Settings.#ctor">
+            <summary>
+            Settings Constructor.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Settings Constructor.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.#ctor(System.String)">
+            <summary>
+            Settings Constructor.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.#ctor(System.IO.FileInfo)">
+            <summary>
+            Settings Constructor.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.#ctor(BeingIT.Settings.StoragePath)">
+            <summary>
+            Settings Constructor.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Settings.Item(System.String)">
+            <summary>
+            Gets or sets a Setting Value for a given key.
+            </summary>
+            <param name="key">The unique Setting Key.</param>
+            <returns>The Setting Value.</returns>
+        </member>
+        <member name="P:BeingIT.Settings.List">
+            <summary>
+            Gets or sets the Settings List.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Settings.Sections">
+            <summary>
+            Gets or sets the Settings Sections.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Settings.FileInfo">
+            <summary>
+            Gets or sets the Settings File.
+            </summary>
+        </member>
+        <member name="P:BeingIT.Settings.PreserveWhiteSpaces">
+            <summary>
+            Gets or sets if White Spaces are preserved in the xml settings file.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.Load">
+            <summary>
+            Loads the Settings.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.Save">
+            <summary>
+            Saves the Settings.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Settings.Get(System.String)">
+            <summary>
+            Gets a Setting Value based on the Key.
+            </summary>
+            <param name="key">The unique Setting Key.</param>
+            <returns>The Setting Value.</returns>
+        </member>
+        <member name="M:BeingIT.Settings.Set(System.String,System.String)">
+            <summary>
+            Sets a Setting Value based on a Key
+            </summary>
+            <param name="key">The unique Setting Key.</param>
+            <param name="value">The Setting Value.</param>
+            <returns>True is the Setting was successfully Set.</returns>
+        </member>
+        <member name="M:BeingIT.Settings.ToString">
+            <summary>
+            Returns the amount of settings and sections as text.
+            </summary>
+            <returns>The amount of settings and sections as text.</returns>
+        </member>
+        <member name="M:BeingIT.Settings.Dispose">
+            <summary>
+            Disposes all resources.
+            </summary>
+        </member>
+        <member name="E:BeingIT.Settings.Changed">
+            <summary>
+            Fires when the settings file is created or modified.
+            </summary>
+        </member>
+        <member name="T:BeingIT.Settings.ChangedEventHandler">
+            <summary>
+            Settings changed delegate.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:BeingIT.Strings">
+            <summary>
+            Usefull String functions.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Strings.Contains(System.String[],System.String,System.StringComparison)">
+            <summary>
+            Check if the given value exists within the array of string values.
+            </summary>
+            <param name="instance">The string array.</param>
+            <param name="value">The value to test for existance.</param>
+            <param name="comparisonType">The compare rules to use.</param>
+            <returns>True if the value exists in the array.</returns>
+        </member>
+        <member name="M:BeingIT.Strings.IsNullOrEmpty(System.String[])">
+            <summary>
+            Indicates whether any specified strings are found null or empty in the string array.
+            </summary>
+            <param name="args">The string array to evaluate.</param>
+            <returns>true if any of the value parameters is null or an empty string (""); otherwise, false.</returns>
+        </member>
+        <member name="M:BeingIT.Strings.Replace(System.String,System.String,System.String)">
+            <summary>
+            Replaces all occurrences of a specified string in the given string, with another specified string.
+            </summary>
+            <param name="original">The source string containing the data to be replaced.</param>
+            <param name="pattern">The search patrern</param>
+            <param name="replacement">The replacement string</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Strings.Replace(System.String,System.String,System.String,System.StringComparison)">
+            <summary>
+            Replaces all occurrences of a specified string in the given string, with another specified string.
+            </summary>
+            <param name="original">The source string containing the data to be replaced.</param>
+            <param name="pattern">The search patrern</param>
+            <param name="replacement">The replacement string</param>
+            <param name="comparisonType">The comparison type used for matching</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Strings.Replace(System.String,System.String,System.String,System.StringComparison,System.Int32)">
+            <summary>
+            Replaces all occurrences of a specified string in the given string, with another specified string.
+            </summary>
+            <param name="original">The source string containing the data to be replaced.</param>
+            <param name="pattern">The search patrern</param>
+            <param name="replacement">The replacement string</param>
+            <param name="comparisonType">The comparison type used for matching</param>
+            <param name="stringBuilderInitialSize">The initialsize of the string builder</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeingIT.Text.HexEncoding">
+            <summary>
+            HexEncoding class.
+            </summary>
+        </member>
+        <member name="M:BeingIT.Text.HexEncoding.GetBytes(System.String)">
+            <summary>
+            Creates a byte array from the hexadecimal string. Each two characters are combined
+            to create one byte. First two hexadecimal characters become first byte in returned array.
+            Non-hexadecimal characters are ignored. 
+            </summary>
+            <param name="hexString">string to convert to byte array</param>
+            <returns>byte array, in the same left-to-right order as the hexString</returns>
+        </member>
+        <member name="M:BeingIT.Text.HexEncoding.GetBytes(System.String,System.Int32@)">
+            <summary>
+            Creates a byte array from the hexadecimal string. Each two characters are combined
+            to create one byte. First two hexadecimal characters become first byte in returned array.
+            Non-hexadecimal characters are ignored. 
+            </summary>
+            <param name="hexString">string to convert to byte array</param>
+            <param name="discarded">number of characters in string ignored</param>
+            <returns>byte array, in the same left-to-right order as the hexString</returns>
+        </member>
+        <member name="M:BeingIT.Text.HexEncoding.GetByteCount(System.String)">
+            <summary>
+            Returns the byte count.
+            </summary>
+            <param name="hexString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Text.HexEncoding.IsHexFormat(System.String)">
+            <summary>
+            Determines if given string is in proper hexadecimal string format
+            </summary>
+            <param name="hexString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeingIT.Text.HexEncoding.IsHexDigit(System.Char)">
+            <summary>
+            Returns true is c is a hexadecimal digit (A-F, a-f, 0-9)
+            </summary>
+            <param name="c">Character to test</param>
+            <returns>true if hex digit, false if not</returns>
+        </member>
+        <member name="M:BeingIT.Text.HexEncoding.HexToByte(System.String)">
+            <summary>
+            Converts 1 or 2 character string into equivalant byte value
+            </summary>
+            <param name="hex">1 or 2 character string</param>
+            <returns>byte</returns>
+        </member>
+        <member name="M:BeingIT.Text.HexEncoding.ToString(System.Byte[])">
+            <summary>
+            Returns a string representation.
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

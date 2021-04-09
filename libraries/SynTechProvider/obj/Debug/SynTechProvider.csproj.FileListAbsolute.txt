@@ -1,0 +1,5 @@
+C:\Dev\SynChecker\libraries\SynTechProvider\bin\Debug\SynTechProvider.dll
+C:\Dev\SynChecker\libraries\SynTechProvider\bin\Debug\SynTechProvider.pdb
+C:\Dev\SynChecker\libraries\SynTechProvider\obj\Debug\SynTechProvider.csprojAssemblyReference.cache
+C:\Dev\SynChecker\libraries\SynTechProvider\obj\Debug\SynTechProvider.dll
+C:\Dev\SynChecker\libraries\SynTechProvider\obj\Debug\SynTechProvider.pdb

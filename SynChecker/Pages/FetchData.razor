@@ -1,0 +1,95 @@
+﻿@page "/fetchdata"
+
+@using SynChecker.Data
+@using System.IO
+@using MerchandiseProvider
+@inject WeatherForecastService ForecastService
+@inject IJSRuntime JS;
+
+<h1>Item List</h1>
+
+@if (merchandiseItems == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Filter..."
+               @bind="Filter"
+               @bind:event="oninput">
+    </div>
+    <table class="table">
+        <thead>
+            <tr class="header">
+                <th>Area</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>InStock</th>
+                <th>Cost</th>
+                <th>Price (Including VAT)</th>
+                <th>Price (Including VAT*)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var merchandiseItem in merchandiseItems)
+            {
+                if (!IsVisible(merchandiseItem))
+                continue;
+                var convertedPrice = double.Parse(merchandiseItem.Cost, System.Globalization.CultureInfo.InvariantCulture);
+
+                var convertedPriceInclusive = convertedPrice + (convertedPrice*0.15);
+
+                <tr>
+                    <td>@merchandiseItem.Area</td>
+                    <td>@merchandiseItem.Category</td>
+                    <td>@merchandiseItem.Name</td>
+                    <td>@merchandiseItem.UiS</td>
+                    <td>@merchandiseItem.Cost</td>
+                    <td>@convertedPriceInclusive</td>
+                    <td>@merchandiseItem.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    MerchandiseItems merchandiseItems = null;
+    IMerchandiseProvider merchandiseProvider;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var outputPath = System.Environment.CurrentDirectory;
+
+        var cacheSourceDirectory = new DirectoryInfo(Path.Combine(outputPath, @".cache"));
+        if (!cacheSourceDirectory.Exists) throw new Exception($"The provider cache path '{cacheSourceDirectory.FullName}' does not exist.");
+
+        var imagesSourceDirectory = new DirectoryInfo(Path.Combine(outputPath, @"Images"));
+        if (!imagesSourceDirectory.Exists) throw new Exception($"The source images path '{imagesSourceDirectory.FullName}' does not exist.");
+
+        merchandiseProvider = new BeingIT.Syntech.API.Commerce.SyntechMerchandiseProvider();
+
+        using (merchandiseProvider)
+            if (merchandiseItems == null || merchandiseItems.Count == 0)
+                merchandiseItems = merchandiseProvider.GetItems(imagesSourceDirectory.FullName);
+    }
+
+    public bool IsVisible(MerchandiseItem merchandiseItem)
+    {
+        if (string.IsNullOrEmpty(Filter))
+            return true;
+
+
+        if (merchandiseItem.Area.Contains(Filter, StringComparison.OrdinalIgnoreCase) ||
+            merchandiseItem.Category.Contains(Filter, StringComparison.OrdinalIgnoreCase) ||
+            merchandiseItem.Name.Contains(Filter, StringComparison.OrdinalIgnoreCase) ||
+            merchandiseItem.UiS.Contains(Filter, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return false;
+    }
+
+    public string Filter { get; set; }
+
+}

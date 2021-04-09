@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\libraries\BeingIT.Syntech.API\BeingIT.Syntech.API.csproj" />
+    <ProjectReference Include="..\libraries\SynTechProvider\SynTechProvider.csproj" />
+  </ItemGroup>
+
+</Project>

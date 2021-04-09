@@ -1,0 +1,15 @@
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.Syntech.API.dll.config
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.Syntech.API.dll
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.Syntech.API.pdb
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.MerchandiseProvider.dll
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\Newtonsoft.Json.dll
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\Syntech.API.dll
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.dll
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.MerchandiseProvider.pdb
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\Newtonsoft.Json.xml
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.xml
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.dll.config
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.csprojAssemblyReference.cache
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.csproj.CopyComplete
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.dll
+C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.pdb

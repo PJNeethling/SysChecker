@@ -1,0 +1,106 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\SynChecker\\SynChecker.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\BeingIT.Syntech.API\\BeingIT.Syntech.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\BeingIT.Syntech.API\\BeingIT.Syntech.API.csproj",
+        "projectName": "BeingIT.Syntech.API",
+        "projectPath": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\BeingIT.Syntech.API\\BeingIT.Syntech.API.csproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\SynTechProvider\\SynTechProvider.csproj": {
+                "projectPath": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\SynTechProvider\\SynTechProvider.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\SynTechProvider\\SynTechProvider.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\SynTechProvider\\SynTechProvider.csproj",
+        "projectName": "SynTechProvider",
+        "projectPath": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\SynTechProvider\\SynTechProvider.csproj"
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\SynChecker\\SynChecker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\SynChecker\\SynChecker.csproj",
+        "projectName": "SynChecker",
+        "projectPath": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\SynChecker\\SynChecker.csproj",
+        "packagesPath": "C:\\Users\\pj.neethling\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\SynChecker\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\pj.neethling\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\BeingIT.Syntech.API\\BeingIT.Syntech.API.csproj": {
+                "projectPath": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\BeingIT.Syntech.API\\BeingIT.Syntech.API.csproj"
+              },
+              "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\SynTechProvider\\SynTechProvider.csproj": {
+                "projectPath": "C:\\Users\\pj.neethling\\Documents\\GitHub\\SysChecker\\libraries\\SynTechProvider\\SynTechProvider.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
