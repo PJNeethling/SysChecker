@@ -13,3 +13,14 @@ C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\obj\Release\Being
 C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.csproj.CopyComplete
 C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.dll
 C:\MSTFS\BeingIT\Default\Website\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.pdb
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.Syntech.API.dll.config
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.Syntech.API.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Release\BeingIT.Syntech.API.pdb
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Release\Newtonsoft.Json.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Release\SynTechProvider.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Release\SynTechProvider.pdb
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Release\Newtonsoft.Json.xml
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.csprojAssemblyReference.cache
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.csproj.CopyComplete
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\obj\Release\BeingIT.Syntech.API.pdb

@@ -1,0 +1,5 @@
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\SynTechProvider\bin\Release\SynTechProvider.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\SynTechProvider\bin\Release\SynTechProvider.pdb
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\SynTechProvider\obj\Release\SynTechProvider.csprojAssemblyReference.cache
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\SynTechProvider\obj\Release\SynTechProvider.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\SynTechProvider\obj\Release\SynTechProvider.pdb

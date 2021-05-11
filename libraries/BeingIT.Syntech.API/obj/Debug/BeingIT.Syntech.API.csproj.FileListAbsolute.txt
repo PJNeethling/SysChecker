@@ -24,3 +24,14 @@ C:\Dev\SynChecker\libraries\BeingIT.Syntech.API\obj\Debug\BeingIT.Syntech.API.cs
 C:\Dev\SynChecker\libraries\BeingIT.Syntech.API\obj\Debug\BeingIT.Syntech.API.csproj.CopyComplete
 C:\Dev\SynChecker\libraries\BeingIT.Syntech.API\obj\Debug\BeingIT.Syntech.API.dll
 C:\Dev\SynChecker\libraries\BeingIT.Syntech.API\obj\Debug\BeingIT.Syntech.API.pdb
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Debug\BeingIT.Syntech.API.dll.config
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Debug\BeingIT.Syntech.API.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Debug\BeingIT.Syntech.API.pdb
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Debug\Newtonsoft.Json.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Debug\SynTechProvider.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Debug\SynTechProvider.pdb
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\bin\Debug\Newtonsoft.Json.xml
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\obj\Debug\BeingIT.Syntech.API.csprojAssemblyReference.cache
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\obj\Debug\BeingIT.Syntech.API.csproj.CopyComplete
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\obj\Debug\BeingIT.Syntech.API.dll
+C:\Users\pj.neethling\Documents\GitHub\SysChecker\libraries\BeingIT.Syntech.API\obj\Debug\BeingIT.Syntech.API.pdb
